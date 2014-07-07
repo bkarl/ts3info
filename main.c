@@ -154,7 +154,7 @@ int main(int argc, char **argv)
 	char url[256] = "telnet://";
 	strcat(url,argv[argc-1]);
 	
-	curl_easy_setopt(curl, CURLOPT_URL, url); //"telnet://192.168.1.254:10011"
+	curl_easy_setopt(curl, CURLOPT_URL, url);
 	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, data_receive);
 	currentState = STATE_WELCOMEMSG;
 	curl_easy_setopt(curl, CURLOPT_READFUNCTION, data_send); 
@@ -168,6 +168,8 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+//credit:
+//http://creativeandcritical.net/str-replace-c/
 char *replace_str(const char *str, const char *old, const char *new)
 {
 	char *ret, *r;
